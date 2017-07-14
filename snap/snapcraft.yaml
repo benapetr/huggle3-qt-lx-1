@@ -28,6 +28,7 @@ parts:
       - -DHUGGLE_EXT=true
     source-type: git
     source: https://github.com/huggle/huggle3-qt-lx
+    source-subdir: huggle
     stage-packages:
       - libqt5gui5
       - libqt5webkit5
