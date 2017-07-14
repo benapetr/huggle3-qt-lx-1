@@ -19,6 +19,10 @@ apps:
         - browser-support
 
 parts:
+  repo-init:
+      prepare: huggle/build/prepare_snap.sh
+      plugin: nil
+
   application:
     prepare: ./build/prepare_snap.sh
     plugin: cmake
@@ -51,4 +55,4 @@ parts:
       - libx11-dev
       - qtmultimedia5-dev
       - libqt5webkit5-dev
-    after: [desktop-qt5]
+    after: [repo-init,desktop-qt5]
