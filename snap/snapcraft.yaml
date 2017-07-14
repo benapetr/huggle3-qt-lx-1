@@ -19,40 +19,22 @@ apps:
         - browser-support
 
 parts:
-  repo-init:
-      prepare: huggle/build/prepare_snap.sh
-      plugin: nil
-
   application:
-    prepare: ./build/prepare_snap.sh
+#   prepare: ./build/prepare_snap.sh
     plugin: cmake
     configflags:
       - -DQT5_BUILD=true
       - -DLINUX_SNAP=true
       - -DHUGGLE_EXT=true
-    source: huggle/
+    source-type: git
+    source: https://github.com/huggle/huggle3-qt-lx
     stage-packages:
       - libqt5gui5
-      - libqt5core5a
       - libqt5webkit5
       - libqt5concurrent5
-      - libqt5quickparticles5
-      - libqt5widgets5
-      - libqt5declarative5
-      - libqt5quickwidgets5
       - libqt5network5
       - libqt5multimediaquick-p5
       - libqt5multimediawidgets5
     build-packages:
-      - libgtk2.0-0
-      - libdrm-dev
-      - libegl1-mesa-dev
-      - qtbase5-dev
-      - libgl1-mesa-dev
-      - libglu1-mesa-dev
-      - libqt5opengl5-dev
-      - libwayland-dev
-      - libx11-dev
-      - qtmultimedia5-dev
       - libqt5webkit5-dev
-    after: [repo-init,desktop-qt5]
+    after: [desktop-qt5]
